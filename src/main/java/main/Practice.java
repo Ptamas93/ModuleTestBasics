@@ -17,18 +17,18 @@ public class Practice {
 
     /**
      * 1. feladat - 2p
-     *
+     * <p>
      * A különböző osztályú űrhajókat a csatákra úgy készítik fel, hogy pajzzsal látják el őket.
-     *
+     * <p>
      * Az űrhajó-osztályok és a pajzsuk ereje:
-     *      Intrepid: 100
-     *      Nova: 200
-     *      Raven: 300
-     *      Galaxy: 500
-     *      Dreadnought: 800
-     *
+     * Intrepid: 100
+     * Nova: 200
+     * Raven: 300
+     * Galaxy: 500
+     * Dreadnought: 800
+     * <p>
      * Más osztályú űrhajók nem kapnak pajzsot.
-     *
+     * <p>
      * Valósítsd meg a "getShieldPower" nevű metódust!
      * A metódus adja vissza, hogy az adott osztályú űrhajó milyen erős pajzzsal rendelkezik.
      *
@@ -36,38 +36,52 @@ public class Practice {
      * @return a pajzs ereje
      */
     public static int getShieldPower(String shipClass) {
-        return -1;
+        switch (shipClass) {
+            case "Intrepid":
+                return 100;
+            case "Nova":
+                return 200;
+            case "Raven":
+                return 300;
+            case "Galaxy":
+                return 500;
+            case "Dreadnought":
+                return 800;
+            default:
+                return 0;
+        }
     }
 
     /**
      * 2. feladat - 2p
-     *
+     * <p>
      * A Bolygóközi Köztársaság katonai akadémiáján a túlélési gyakorlaton elvárt szintet úgy határozzák meg,
      * hogy az előző évi első és utolsó próbálkozó eredményét átlagolják.
      * (Nem a legkisebbet és a legnagyobbat, hanem sorrendben az elsőt és a legutolsót!)
-     *
+     * <p>
      * Valósítsd meg a "countRequirement" nevű metódust!
      * A metódus bemeneti paraméterként kapja az előző évi eredményeket (sorrendben),
      * és visszaadja az első és az utolsó eredmény átlagát.
-     *
+     * <p>
      * (Biztos lehetsz benne, hogy a bemeneti paraméterként kapott tömb legalább 2 elemet tartalmaz.)
      *
      * @param scores az előző évi eredmények
      * @return az elvárt szint
      */
     public static double countRequirement(int[] scores) {
-        return 0.0;
+        double i = (double) (scores[0] + scores[scores.length - 1]) / 2;
+        return i;
     }
 
     /**
      * 3. feladat - 3p
-     *
+     * <p>
      * Az űrhajók harcképességét mindig felmérik, mielőtt csatába indulnak velük.
      * Egy hajót akkor minősítenek harcképesnek, ha az alábbi feltételek mind teljesülnek:
-     *      a pajzs töltöttsége meghaladja a 20 egységet
-     *      a fegyverzet töltöttsége meghaladja a 20 egységet
-     *      a pajzs és fegyverzet töltöttsége átlagosan meghaladja az 50 egységet
-     *
+     * a pajzs töltöttsége meghaladja a 20 egységet
+     * a fegyverzet töltöttsége meghaladja a 20 egységet
+     * a pajzs és fegyverzet töltöttsége átlagosan meghaladja az 50 egységet
+     * <p>
      * Valósítsd meg az "isShipAbleToFight" nevű metódust!
      * A metódus bemeneti paraméterként kapja a pajzs és a fegyverzet töltöttségét,
      * és megállapítja, hogy a fenti feltételek mind teljesülnek-e vagy sem.
@@ -77,41 +91,49 @@ public class Practice {
      * @return a hajó harcképes-e
      */
     public static boolean isShipAbleToFight(int shieldCharge, int weaponCharge) {
-        return false;
+        if (shieldCharge > 20 & weaponCharge > 20 && (shieldCharge + weaponCharge / 2.0) > 50) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
     /**
      * 4. feladat - 3p
-     *
+     * <p>
      * Noha a hadviselésnek vannak szabályai, egy titkos gyarmati különítmény úgy döntött, hogy beveti a legveszedelmesebb
      * fegyvert, amelynek használatát az egész Univerzumban régen betiltottak már: a vérengző űrnyulakat.
      * Ezért megbíztak egy tenyésztőt, hogy szaporítson adott számú űrnyulat.
      * A megrendeléskor kérdezték a tenyésztőt, hogy hány napig kell várniuk a szállítmány teljesítésére.
-     *
+     * <p>
      * A tenyésztő tudta, hogy az űrnyulak szaporák, és a populációjuk naponta megduplázódik. Azonban a pontos számítással
      * problémái akadtak.
-     *
+     * <p>
      * Segíts a tenyésztőnek kiszámítani, hogy hány nap alatt tudja kitenyészteni a kívánt mennyiséget,
      * ha az űrnyulak száma naponta megduplázódik!
-     *
+     * <p>
      * Valósítsd meg a "getSpaceRabbitDays" nevű metódust!
      * A metódus bemeneti paraméterként kapja, hogy hány űrnyúllal kezdi a tenyésztő a szaporítást,
      * valamint hogy a megrendelők hány nyulat rendeltek.
      * A metódus adja vissza, hogy hányadik napon tudja teljesíteni a tenyésztő a megrendelést!
-     *
+     * <p>
      * Ügyelj arra, hogy ha a tenyésztőnek már van annyi űrnyula, amennyit a megrendelő kért,
      * akkor is 1 nap a megrendelés teljesítésének időtartama.
-     *
+     * <p>
      * Biztos lehetsz benne, hogy a "startRabbitValue" értéke legalább 1.
      *
      * @param startRabbitValue az űrnyulak száma a tenyésztés megkezdésekor
-     * @param requiredRabbits a megrendelt űrnyulak száma
+     * @param requiredRabbits  a megrendelt űrnyulak száma
      * @return a megrendelés teljesítéséhez szükséges napok száma
      */
     public static int getSpaceRabbitDays(int startRabbitValue, int requiredRabbits) {
-        return -1;
-    }
 
+        int days = 1;
+        while (startRabbitValue < requiredRabbits) {
+            startRabbitValue = startRabbitValue * 2;
+            days++;
+        }
+         return days;
+    }
     /**
      * 5. feladat - 3p
      *
@@ -128,7 +150,12 @@ public class Practice {
      * @return a teljes sereg száma
      */
     public static int sumArmy(int[] armyOfPlanets) {
-        return -1;
+        int fighter = 0;
+
+        for (int i = 0; i < armyOfPlanets.length; i++) {
+            fighter += armyOfPlanets[i];
+        }
+        return fighter;
     }
 
     /**
@@ -147,7 +174,14 @@ public class Practice {
      * @return a megnyert csaták darabszáma
      */
     public static int countVictories(int[] battles) {
-        return -1;
+        int win = 0;
+        for (int i = 0; i < battles.length; i++) {
+            if (battles[i] > 0) {
+                win++;
+            }
+
+        }
+        return win;
     }
 
     /**
@@ -164,7 +198,17 @@ public class Practice {
      * @param heights a kadétok magassága
      */
     public static boolean isInAscendingOrder(int[] heights) {
-        return false;
+        if (heights.length == 1) {
+            return true;
+        }
+        boolean rossz = false;
+
+        for (int i = 0; i < heights.length - 1 && !rossz; i++) {
+            if (heights[i] > heights[i + 1]) {
+                rossz = true;
+            }
+        }
+        return !rossz;
     }
 
     /**
@@ -189,7 +233,12 @@ public class Practice {
      * @return az eredeti üzenet karakterei fordított sorrendben
      */
     public static char[] reverseMessage(char[] message) {
-        return null;
+        for (int i = 0; i < message.length/2; i++) {
+            char a = message[i];
+            message[i] = message[message.length - 1 - i];
+            message[message.length - 1 - i] = a;
+        }
+        return message;
     }
 
     /**
@@ -221,7 +270,19 @@ public class Practice {
      * @return a legtöbb veszteséget tartalmazó hónap index-száma
      */
     public static int getWorstMonthIndex(int[][] lossesPerMonths) {
-        return -1;
+        int a = 0;
+        int month = 0;
+        for (int i = 0; i < lossesPerMonths.length; i++) {
+            int b = 0;
+            for (int j = 0; j < lossesPerMonths[i].length; j++) {
+                b += lossesPerMonths[i][j];
+            }
+            if (b > a) {
+                a = b;
+                month = i;
+            }
+        }
+        return month;
     }
 
     /**
@@ -248,7 +309,20 @@ public class Practice {
      * @param shipPowers az űrhajók ereje
      */
     public static void sortShipsByPower(String[] shipNames, int[] shipPowers) {
-
+        String a;
+        int b;
+        for (int i = 0; i < shipPowers.length - 1; i++) {
+            for (int j = i + 1; j < shipPowers.length; j++) {
+                if (shipPowers[j] > shipPowers[i]) {
+                    int c = shipPowers[j];
+                    shipPowers[j] = shipPowers[i];
+                    shipPowers[i] = c;
+                    String d = shipNames[j];
+                    shipNames[j] = shipNames[i];
+                    shipNames[i] = d;
+                }
+            }
+        }
     }
 
     // --------------------------------------------------------------------------------------

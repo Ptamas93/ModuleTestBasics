@@ -20,5 +20,4 @@ class Test_02_CountRequirement {
         scores = new int[]{10, 12, 10, 23, 40};
         assertEquals(25d, Practice.countRequirement(scores), 0.01);
     }
-
 }
